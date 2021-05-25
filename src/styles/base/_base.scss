@@ -1,0 +1,24 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e5e5;
+}
+
+a {
+  text-decoration: none;
+}
+
+// img {
+//   position: absolute;
+// width: 1862px;
+// height: 298px;
+// left: 24px;
+// top: 80px;
+// }

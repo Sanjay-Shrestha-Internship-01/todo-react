@@ -1,0 +1,68 @@
+// ==========================================================================
+// // Global Settings
+// // ==========================================================================
+@import 'helpers/config';
+@import 'helpers/colors';
+// // Mixins
+// // @import 'helpers/mixins/breakpoints';
+// // @import 'helpers/mixins/clearfix';
+// // @import 'helpers/mixins/input-placeholder';
+// // @import 'helpers/mixins/position';
+// // @import 'helpers/mixins/position-center';
+// // @import 'helpers/mixins/reset-list';
+// // @import 'helpers/mixins/hardware-acceleration';
+// // @import 'helpers/mixins/truncate';
+// // @import 'helpers/mixins/background-transition';
+// // @import 'helpers/mixins/slanted-edge';
+
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+@import 'base/reset';
+// @import 'base/base';
+@import 'base/typography';
+
+// ==========================================================================
+// Components
+// Styles for generic UI components
+// Examples include navbar, dialog boxes, carousels, sidebar etc
+// ==========================================================================
+// @import 'components/button';
+@import 'components/checkbox';
+@import 'components/dropdown';
+@import 'layouts/todo';
+
+body {
+  background-color: #f9fafb;
+  font-family: 'Roboto';
+}
+
+.container {
+  width: 100vwh;
+}
+img {
+  max-width: 100%;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  justify-content: space-between;
+
+  div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+li {
+  display: block;
+  padding: 0px 10px 0px;
+}
+.li-first {
+  float: left;
+}
+.li-last {
+  float: right;
+}

@@ -1,0 +1,143 @@
+.todo-box {
+  background-color: rgb(245, 245, 245);
+  margin: auto;
+  margin-top: 80px;
+  width: 35%;
+  font-family: 'roboto';
+  // border: 2px solid black;
+  padding: 10px 20px;
+  position: relative;
+  border-style: solid;
+  // box-shadow: ;
+  border-image: initial;
+  box-shadow: 0px 4px 8px 4px rgb(219, 216, 216);
+}
+.todo-header {
+  text-align: center;
+  border-bottom: 2px solid rgb(206, 202, 202);
+  padding: 0px 10px;
+  .header-top {
+    display: flex;
+    justify-content: center;
+    font-size: 21px;
+    text-decoration: underline;
+    align-items: center;
+    color: rgb(26, 115, 232);
+    padding: 10px 0px;
+  }
+  form {
+    padding: 20px 0px;
+
+    .add-button {
+      position: absolute;
+      right: 51px;
+      top: 85px;
+      background-color: rgb(26, 115, 232);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      width: 40px;
+      padding: 6px 0px;
+    }
+  }
+}
+
+.fa-check-square {
+  font-size: 31px;
+}
+.header-title {
+  padding-left: 8px;
+}
+
+.add-bar {
+  width: 470px;
+  line-height: 12px;
+  padding: 9px 20px;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgb(219, 216, 216);
+}
+.down-icon {
+  color: #00ced1;
+}
+.todo-body {
+  padding: 0px 10px;
+}
+.todo-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 18px 0px;
+  font-size: 10px;
+}
+.filter-select {
+  padding-left: 10px;
+  select {
+    border: 1px solid rgb(206, 202, 202);
+    font-size: 10px;
+    padding: 3px 2px;
+    margin-left: 2px;
+  }
+}
+.todo-checklist {
+  display: flex;
+  flex-direction: column;
+}
+.checklist-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0px;
+  line-height: 16px;
+  &:hover .checklist-right {
+    visibility: visible;
+  }
+}
+.checklist-right {
+  visibility: hidden;
+}
+.checklist-icons {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  .first-icon {
+    color: #00ced1;
+    margin-right: 15px;
+    position: relative;
+
+    .icon-dropdown {
+      width: 62px;
+      padding-left: 3px;
+      position: absolute;
+      display: none;
+      background-color: black;
+      color: white;
+      transition: all 1s ease;
+    }
+    &:hover .icon-dropdown {
+      display: block;
+      transition: all 1s ease;
+    }
+  }
+}
+
+.second-icon {
+  color: red;
+}
+.third-text {
+  font-size: 10px;
+  color: black;
+}
+.third-icon {
+  margin-right: 6px;
+  color: black;
+}
+.checklist-input {
+  width: 372px;
+  border: none;
+
+  vertical-align: text-bottom;
+}
+
+.icon-hover-text {
+  font-size: 8px;
+  font-size: 10px;
+}

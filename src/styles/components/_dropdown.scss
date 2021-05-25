@@ -1,0 +1,27 @@
+.dropdown {
+  position: relative;
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    width: 314px;
+    background-color: #ffffff;
+    top: 18px;
+    right: 0;
+    transition: all 1s ease;
+    &.show {
+      display: block;
+    }
+    .dropdown-header {
+      background-color: #f9fafb;
+    }
+    .dropdown-body {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  }
+
+  &:hover .dropdown-content {
+    display: block;
+    transition: all 1s ease;
+  }
+}
