@@ -4,8 +4,8 @@ export default class Bodymain extends Component {
     render() {
         return (
 
-            <div class="todo-option">
-            <div class="filter-select">
+            <div className="todo-option">
+            <div className="filter-select">
               <span>Filter</span>
               <select name="Sanjay" id="">
                 <option value="">All</option>
@@ -14,17 +14,17 @@ export default class Bodymain extends Component {
                 <option value="">Has due date</option>
               </select>
             </div>
-            <div class="filter-select">
+            <div className="filter-select">
               <span> Sort</span>
               <select name="Sanjay" id="">
                 <option value="">Added date</option>
                 <option value="">Due date</option>
               </select>
-              <i class="fas fa-sort-amount-down-alt down-icon"></i>
+              <i className="fas fa-sort-amount-down-alt down-icon"></i>
             </div>
           </div>
 
 
-            )
-        }
+        )
     }
+}

@@ -27,11 +27,15 @@
   }
   form {
     padding: 20px 0px;
-
+    .calendar-icon{
+          right: 100px;
+          top: 88px;
+          position: absolute;
+    }
     .add-button {
       position: absolute;
       right: 51px;
-      top: 85px;
+      top: 82px;
       background-color: rgb(26, 115, 232);
       border: 1px solid transparent;
       border-radius: 4px;
