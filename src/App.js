@@ -12,9 +12,9 @@ class App extends React.Component {
 
     this.state = {
         todos: [],
-        addTodo: {
-            title: '', date: ''
-        },
+        // addTodo: {
+        //     title: '', date: ''
+        // },
 
 
         editTodo: null,
@@ -40,10 +40,10 @@ addTodo(title, date) {
     });
     this.setState({
         todos,
-        addTodo: {
-            title: '',
-            date: ''
-        }
+        // addTodo: {
+        //     title: '',
+        //     date: ''
+        // }
     });
 }
 
@@ -137,7 +137,7 @@ saveTodo(event, firstInput, dateInput) {
           <Bodymain />
           <BodyBottom 
             todos={this.state.todos}
-            addTodos={this.addTodo}
+            // addTodos={this.addTodo}
             showEditView={this.showEditView}
             updateTodo={this.updateTodo}
             deleteTodo={this.deleteTodo}

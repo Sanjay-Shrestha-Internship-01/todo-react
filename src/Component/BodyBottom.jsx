@@ -1,25 +1,78 @@
 
 import React, { Component } from 'react'
-
+import Calendar from './calendar'
 export default class BodyBottom extends Component {
   
 
   render() {
     const todos = this.props.todos || [];
+    const showEditView = this.props.showEditView;
+   const handleEditTitle= this.props.handleEditTitle;
+   const handleEditDate = this.props.handleEditDate;
+   const addTodo = this.props.addTodo;
     console.log(todos);
-    return (
-      <>
-        {todos.map((item, index) => (
+    
+    return(
+      <>  
+        {todos.map((item, index) => {
+
+          if (index === showEditView.editIndex && showEditView.editTodo) {
+            return (
+              <>
+                <form onSubmit={this.updateTodo}>
+                <div className="todo-checklist">
+                <div className="checklist-row">
+                  <div className="checklist-left">
+                    <input type="checkbox" />
+                    <span><input className="add-bar" id="myInput" type="text" name="edittitle" value={showEditView.editTodo.title} placeholder="Add new.." onChange={this.props.handleEditTitle} /></span>
+                    <div className= "" > <Calendar  changeDateInput={this.changeDateInput} value={showEditView.editTodo.date} onChange={this.handleEditDate}/> </div>
+                  </div>
+                  <div className="checklist-right">
+                    <div className="checklist-icons">
+                      <div className="first-icon" onClick={()=> showEditView(index, item)}>
+                        <i className="fas fa-pencil-alt"></i>
+                        <div className="icon-dropdown">
+                          <span className="icon-hover-text" >Edit todo</span>
+                        </div>
+                      </div>
+                      <div className="first-icon" onClick= {()=>this.props.deleteTodo(index)}>
+                        <i className="far fa-trash-alt second-icon"></i>
+                        <div className="icon-dropdown">
+                          <span className="icon-hover-text">Delete todo</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="checklist-icons">
+                      <div className="first-icon">
+                        <i className="fas fa-info-circle third-icon"></i>
+                        <span className="third-text"> {item.date}</span>
+                        <div className="icon-dropdown">
+                          <span className="icon-hover-text">Created Date</span>
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+              </div> 
+                </form>
+                </>
+            )
+          }
+         
+          return(
+            <>
           <form>
           <div className="todo-checklist">
           <div className="checklist-row">
             <div className="checklist-left">
-              <input type="checkbox" />
+              <input type="checkbox" checked={todos.isCompleted} onChange={(event)=>this.props.handleComplete(event, index, item)} />
               <label>{item.title}</label>
             </div>
             <div className="checklist-right">
               <div className="checklist-icons">
-                <div className="first-icon" onClick={()=>this.props.editTodo(item, index)}>
+                <div className="first-icon" onClick={()=> showEditView(index, item)}>
                   <i className="fas fa-pencil-alt"></i>
                   <div className="icon-dropdown">
                     <span className="icon-hover-text" >Edit todo</span>
@@ -47,8 +100,15 @@ export default class BodyBottom extends Component {
           </div>
         </div>
         </form>
-        ))} 
-      </>
-    )
+        </>
+          )
+         
+      
+        })
   }
+
+
+</>
+)
+}
 }
