@@ -59,6 +59,8 @@
   border: none;
   box-shadow: 0px 0px 4px 0px rgb(219, 216, 216);
 }
+
+
 .down-icon {
   color: #00ced1;
 }
@@ -144,4 +146,21 @@
 .icon-hover-text {
   font-size: 8px;
   font-size: 10px;
+}
+.checklist-left{
+  position: relative;
+}
+
+.edit-add-bar{
+  width: 342px;
+  padding: 6px 15px;
+  line-height: 8px;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgb(219, 216, 216);
+}
+.edit-calendar-icon{
+  top: 4px;
+  position: absolute;
+ 
+  left: 220px;
 }

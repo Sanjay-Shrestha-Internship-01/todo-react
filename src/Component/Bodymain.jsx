@@ -10,8 +10,7 @@ export default class Bodymain extends Component {
               <select name="Sanjay" id="">
                 <option value="">All</option>
                 <option value="">Complete</option>
-                <option value="">Active</option>
-                <option value="">Has due date</option>
+               
               </select>
             </div>
             <div className="filter-select">
@@ -28,3 +27,4 @@ export default class Bodymain extends Component {
         )
     }
 }
+

@@ -7,19 +7,16 @@ export default class Header extends Component {
 
     constructor(props) {
       super(props);
-      // learn react state;
-      // learn react props;
-      // learn react class component
-      // learn react way of showing loop of records
+     
       this.state = {
         firstInput: '',
         
-       dateInput: '',
+      //  dateInput: '',
         
       }
       this.changeFirstInput = this.changeFirstInput.bind(this);
       
-      this.changeDateInput = this.changeDateInput.bind(this);
+      // this.changeDateInput = this.changeDateInput.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -33,14 +30,12 @@ export default class Header extends Component {
 
     
 
-    changeDateInput(date) {
-      this.setState({dateInput: date.toDateString()});
-    }
+   
     handleSubmit(event) {
-      this.props.saveTodo( event, this.state.firstInput, this.state.dateInput)
+      this.props.saveTodo( event, this.state.firstInput, this.props.dateInput)
       this.setState({
         firstInput: '',
-        dateInput: '',
+        // dateInput: '',
       });
 
     }
@@ -56,7 +51,7 @@ export default class Header extends Component {
             <div className="header-form">
               <form action="" onSubmit={this.handleSubmit}>
                 <input className="add-bar" id="myInput" type="text" name="FirstInput" value={this.state.firstInput} placeholder="Add new.." onChange={this.changeFirstInput} />
-                    <div className= "calendar-icon" > <Calendar  changeDateInput={this.changeDateInput}/><i className="far fa-calendar-alt"></i> </div>
+                    <div className= "calendar-icon" > <Calendar  changeDateInput={this.props.changeDateInput}/><i className="far fa-calendar-alt"></i> </div>
                 <button className="add-button" type="submit">Add</button>
                
               </form>
@@ -66,3 +61,4 @@ export default class Header extends Component {
         )
     }
 }
+
