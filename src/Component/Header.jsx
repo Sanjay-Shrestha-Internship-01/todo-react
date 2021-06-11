@@ -7,23 +7,21 @@ export default class Header extends Component {
     this.state = {
       firstInput: "",
     };
-
   }
 
   changeFirstInput = (event) => {
     // setState is special function to set value on state variable declared on constructor here.
     this.setState({
       firstInput: event.target.value,
-      
     });
-  }
+  };
 
   handleSubmit = (event) => {
     this.props.saveTodo(event, this.state.firstInput, this.props.dateInput);
     this.setState({
       firstInput: "",
     });
-  }
+  };
 
   render() {
     return (

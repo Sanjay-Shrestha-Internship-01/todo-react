@@ -7,8 +7,6 @@ export default class BodyBottom extends Component {
     const editTodo = this.props.editTodo;
     const showEditView = this.props.showEditView;
     const handleEditTitle = this.props.handleEditTitle;
-    const handleEditDate = this.props.handleEditDate;
-    const updateTodo = this.props.updateTodo;
 
     return (
       <>
@@ -16,7 +14,11 @@ export default class BodyBottom extends Component {
           if (index === editIndex && editTodo) {
             return (
               <>
-                <form onSubmit={()=> this.props.updateApi(item.id,`${editTodo.title}`)}>
+                <form
+                  onSubmit={() =>
+                    this.props.updateApi(item.id, `${editTodo.title}`)
+                  }
+                >
                   <div className="todo-checklist">
                     <div className="checklist-row">
                       <div className="checklist-left">
@@ -38,7 +40,6 @@ export default class BodyBottom extends Component {
                             onChange={handleEditTitle}
                           />
                         </span>
-                        
                       </div>
                       <div className="checklist-right">
                         <div className="checklist-icons">
