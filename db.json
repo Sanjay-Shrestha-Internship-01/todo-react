@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "title": "buy groceries dont forget chocolate",
+      "date": "Fri Jun 11 2021",
+      "id": 1
+    },
+    {
+      "title": "buy clothes",
+      "date": "Fri Jun 11 2021",
+      "id": 2
+    }
+  ]
+}

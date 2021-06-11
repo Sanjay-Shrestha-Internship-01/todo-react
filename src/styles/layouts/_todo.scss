@@ -3,12 +3,10 @@
   margin: auto;
   margin-top: 80px;
   width: 35%;
-  font-family: 'roboto';
-  // border: 2px solid black;
+  font-family: "roboto";
   padding: 10px 20px;
   position: relative;
   border-style: solid;
-  // box-shadow: ;
   border-image: initial;
   box-shadow: 0px 4px 8px 4px rgb(219, 216, 216);
 }
@@ -27,10 +25,10 @@
   }
   form {
     padding: 20px 0px;
-    .calendar-icon{
-          right: 100px;
-          top: 88px;
-          position: absolute;
+    .calendar-icon {
+      right: 100px;
+      top: 88px;
+      position: absolute;
     }
     .add-button {
       position: absolute;
@@ -53,13 +51,12 @@
 }
 
 .add-bar {
-  width: 470px;
+  width: 85%;
   line-height: 12px;
   padding: 9px 20px;
   border: none;
   box-shadow: 0px 0px 4px 0px rgb(219, 216, 216);
 }
-
 
 .down-icon {
   color: #00ced1;
@@ -147,20 +144,20 @@
   font-size: 8px;
   font-size: 10px;
 }
-.checklist-left{
+.checklist-left {
   position: relative;
 }
 
-.edit-add-bar{
+.edit-add-bar {
   width: 342px;
   padding: 6px 15px;
   line-height: 8px;
   border: none;
   box-shadow: 0px 0px 4px 0px rgb(219, 216, 216);
 }
-.edit-calendar-icon{
+.edit-calendar-icon {
   top: 4px;
   position: absolute;
- 
+
   left: 220px;
 }

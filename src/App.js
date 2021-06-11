@@ -1,39 +1,68 @@
-import logo from "./logo.svg";
 import React from "react";
-
 import "./styles/main.scss";
 import Header from "./Component/Header";
 import Bodymain from "./Component/Bodymain";
 import BodyBottom from "./Component/BodyBottom";
+import axios from 'axios'
 
+const api = axios.create({
+  baseURL : `http://localhost:3000`
+})
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props);
+    
+    
 
     this.state = {
       todos: [],
+     
       dateInput: "",
       editIndex: -1,
     };
   }
+  
+  componentDidMount(){
+    this.getTodo();
+  }
+  //API calls Start
+getTodo = async ()=>{
+  let data = await api.get('/todos').then(({data}) =>
+    data);
+  
+  this.setState({ todos : data })
+  console.log(data)
+}
+  
+  deleteApi = async(id) =>{
+    
+    let data = await api.delete(`/todos/${id}`)
+    this.getTodo();
+  }
+  updateApi = async(id, val) =>{
+    
+    let data = await api.patch(`/todos/${id}`,{title: val})
+    this.getTodo();
+  }
 
-  addTodo = (title, date) => {
-    const todos = [...this.state.todos];
-    todos.push({
-      title,
-      date,
-      isCompleted: false,
-    });
-    this.setState({
-      todos,
-      // addTodo: {
-      //     title: '',
-      //     date: ''
-      // }
-    });
-  };
+/// API calls end
 
+  // addTodo = (title, date) => {
+  //   const todos = [...this.state.todos];
+  //   todos.push({
+      
+      
+  //     title,
+  //     date,
+  //     isCompleted: false,
+  //   });
+  //   this.setState({
+  //     todos,
+      
+  //   });
+  // };
+ 
   showEditView = (index, todo) => {
     // to show edit view
     this.setState({
@@ -55,17 +84,9 @@ class App extends React.Component {
     });
   };
 
-  deleteTodo = (index) => {
-    const todos = [...this.state.todos];
-    todos.splice(index, 1);
-    this.setState({
-      todos,
-    });
-  };
 
   handleComplete = (event, index, todo) => {
     const todos = [...this.state.todos];
-    // todos[index].isCompleted = event.target.checked;
     const editTodo = { ...todo, isCompleted: event.target.checked };
     todos.splice(index, 1, editTodo);
     this.setState({
@@ -83,29 +104,35 @@ class App extends React.Component {
     });
   };
 
-  handleEditDate = (event) => {
-    const editTodo = {
-      ...this.state.editTodo,
-      date: event.target.value,
-    };
-    this.setState({
-      editTodo: { ...editTodo },
-    });
-  };
+  // handleEditDate = (event) => {
+  //   const editTodo = {
+  //     ...this.state.editTodo,
+  //     date: event.target.value,
+  //   };
+  //   this.setState({
+  //     editTodo: { ...editTodo },
+  //   });
+  // };
   saveTodo = (event, firstInput, dateInput) => {
+   
     console.log("submit called");
-    event.preventDefault(); // this line is important
+    event.preventDefault(); // @note: This line is important. The preventDefault() method stops the default action of a selected element from happening by a user.
     console.log("value", firstInput, dateInput);
     this.setState({ isEdit: true });
     const todos = this.state.todos;
-    todos.push({
-      title: firstInput,
-
-      date: dateInput,
-    });
-    this.setState({
-      todos: todos,
-    });
+    // todos.push({
+    //   title: firstInput,
+    //   date: dateInput,
+    // });
+  api.post('/todos',{ title: firstInput,
+        date: dateInput, })
+      
+      this.getTodo();
+    
+    
+    // this.setState({
+    //   todos: todos,
+    // });
   };
   changeDateInput = (date) => {
     this.setState({ dateInput: date.toDateString() });
@@ -114,6 +141,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="todo-box">
+         
           <Header
             todos={this.state.todos}
             saveTodo={this.saveTodo}
@@ -121,6 +149,7 @@ class App extends React.Component {
             changeDateInput={this.changeDateInput}
           />
           <div className="todo-body">
+            
             <Bodymain />
             <BodyBottom
               todos={this.state.todos}
@@ -133,6 +162,8 @@ class App extends React.Component {
               handleEditTitle={this.handleEditTitle}
               handleEditDate={this.handleEditDate}
               changeDateInput={this.changeDateInput}
+              deleteApi={this.deleteApi}
+              updateApi={this.updateApi}
             />
           </div>
         </div>
