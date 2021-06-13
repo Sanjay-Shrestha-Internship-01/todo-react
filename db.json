@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "title": "buy groceries dont forget chocolate",
+      "title": "buy hair products",
       "date": "Fri Jun 11 2021",
       "id": 1
     },
@@ -9,6 +9,17 @@
       "title": "Buy  hdmi to vga dock",
       "date": "Thu Jun 10 2021",
       "id": 3
+    },
+    {
+      "title": "buy clothes",
+      "date": "",
+      "id": 6
+    },
+    {
+      "title": "sdsdsad",
+      "date": "Tue Jun 01 2021",
+      "id": 7
     }
+    
   ]
 }

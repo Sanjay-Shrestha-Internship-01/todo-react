@@ -4,17 +4,16 @@ import Header from "./Component/Header";
 import Bodymain from "./Component/Bodymain";
 import BodyBottom from "./Component/BodyBottom";
 import axios from "axios";
+import * as commentService from "../src/services/comment"
 
-const api = axios.create({
+const dpi = axios.create({
   baseURL: `http://localhost:3000`,
 });
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       todos: [],
-
       dateInput: "",
       editIndex: -1,
     };
@@ -24,30 +23,37 @@ class App extends React.Component {
     this.getTodo();
   }
   //API calls Start
+  // getTodo = async () => {
+  //   try {
+  //     let data= await commentService.createApiCalls();
+  //     this.setState({ todos: data.data });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  
+  // };
   getTodo = async () => {
     try {
-      let data = await api.get("/todos").then(({ data }) => data);
+      let data = await dpi.get("/todos").then(({ data }) => data);
       this.setState({ todos: data });
     } catch (err) {
       console.log(err);
     }
   };
-
   deleteApi = async (id) => {
     try {
-      let data = await api.delete(`/todos/${id}`);
+      let data = await commentService.deleteApiCalls(id);
       this.getTodo();
     } catch (err) {
       console.log(err);
     }
   };
   updateApi = async (id, val) => {
-    try{
-      let data = await api.patch(`/todos/${id}`, { title: val });
-    this.getTodo();
-
-    }catch(err){
-      console.log(err)
+    try {
+      let data = await dpi.patch(`/todos/${id}`, { title: val });
+      this.getTodo();
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -86,7 +92,7 @@ class App extends React.Component {
     console.log("value", firstInput, dateInput);
     this.setState({ isEdit: true });
     const todos = this.state.todos;
-    api.post("/todos", { title: firstInput, date: dateInput });
+    dpi.post("/todos", { title: firstInput, date: dateInput });
 
     this.getTodo();
   };
