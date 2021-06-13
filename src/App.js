@@ -3,12 +3,9 @@ import "./styles/main.scss";
 import Header from "./Component/Header";
 import Bodymain from "./Component/Bodymain";
 import BodyBottom from "./Component/BodyBottom";
-import axios from "axios";
-import * as commentService from "../src/services/comment"
+import * as todoService from "./services/todoCalls";
 
-const dpi = axios.create({
-  baseURL: `http://localhost:3000`,
-});
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,26 +20,18 @@ class App extends React.Component {
     this.getTodo();
   }
   //API calls Start
-  // getTodo = async () => {
-  //   try {
-  //     let data= await commentService.createApiCalls();
-  //     this.setState({ todos: data.data });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  
-  // };
   getTodo = async () => {
     try {
-      let data = await dpi.get("/todos").then(({ data }) => data);
-      this.setState({ todos: data });
+      let data= await todoService.createApiCalls();
+      this.setState({ todos: data.data });
     } catch (err) {
       console.log(err);
     }
   };
+ 
   deleteApi = async (id) => {
     try {
-      let data = await commentService.deleteApiCalls(id);
+      let data = await todoService.deleteApiCalls(id);
       this.getTodo();
     } catch (err) {
       console.log(err);
@@ -50,7 +39,7 @@ class App extends React.Component {
   };
   updateApi = async (id, val) => {
     try {
-      let data = await dpi.patch(`/todos/${id}`, { title: val });
+      let data = await todoService.updateApiCalls(id, {title :val});
       this.getTodo();
     } catch (err) {
       console.log(err);
@@ -85,17 +74,17 @@ class App extends React.Component {
       editTodo: { ...editTodo },
     });
   };
-
-  saveTodo = (event, firstInput, dateInput) => {
-    console.log("submit called");
-    event.preventDefault(); // @note: This line is important. The preventDefault() method stops the default action of a selected element from happening by a user.
-    console.log("value", firstInput, dateInput);
-    this.setState({ isEdit: true });
-    const todos = this.state.todos;
-    dpi.post("/todos", { title: firstInput, date: dateInput });
-
-    this.getTodo();
+  saveTodo= async (event,firstInput, dateInput) => {
+    try {
+      let data = await  todoService.saveTodoApiCalls({ title: firstInput, date: dateInput });
+      event.preventDefault();
+      this.setState({ isEdit: true });
+      this.getTodo();
+    } catch (err) {
+      console.log(err);
+    }
   };
+  
   changeDateInput = (date) => {
     this.setState({ dateInput: date.toDateString() });
   };

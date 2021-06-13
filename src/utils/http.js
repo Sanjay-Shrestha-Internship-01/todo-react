@@ -1,7 +1,7 @@
 import axios from "axios";
-import configs from "../config"
+import config from "../config"
 const http = axios.create({
     headers: { "Content-Type": "application/json" },
-    baseURL: configs.baseURI,
+    baseURL: config.baseURI,
 });
 export default http;

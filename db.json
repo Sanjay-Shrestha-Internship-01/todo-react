@@ -1,25 +1,24 @@
 {
   "todos": [
     {
-      "title": "buy hair products",
-      "date": "Fri Jun 11 2021",
-      "id": 1
+      "title": "Buy beers",
+      "date": "Sun Jun 13 2021",
+      "id": 2
     },
     {
       "title": "Buy  hdmi to vga dock",
-      "date": "Thu Jun 10 2021",
-      "id": 3
+      "date": "Sun Jun 20 2021",
+      "id": 4
     },
     {
-      "title": "buy clothes",
-      "date": "",
+      "title": "Buy Groceries",
+      "date": "Mon Jun 14 2021",
+      "id": 5
+    },
+    {
+      "title": "Buy Clothes",
+      "date": "Mon Jun 14 2021",
       "id": 6
-    },
-    {
-      "title": "sdsdsad",
-      "date": "Tue Jun 01 2021",
-      "id": 7
     }
-    
   ]
 }

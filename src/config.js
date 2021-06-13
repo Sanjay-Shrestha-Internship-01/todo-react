@@ -1,7 +1,7 @@
-const config ={
+const config = {
     api:{
         endpoints: {
-            todos: " /todos",
+            todos: "/todos",
 
     },
 },
