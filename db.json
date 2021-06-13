@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "title": "Buy beers",
+      "date": "Sun Jun 13 2021",
+      "id": 2
+    },
+    {
+      "title": "Buy  hdmi to vga dock",
+      "date": "Sun Jun 20 2021",
+      "id": 4
+    },
+    {
+      "title": "Buy Groceries",
+      "date": "Mon Jun 14 2021",
+      "id": 5
+    },
+    {
+      "title": "Buy Clothes",
+      "date": "Mon Jun 14 2021",
+      "id": 6
+    }
+  ]
+}
